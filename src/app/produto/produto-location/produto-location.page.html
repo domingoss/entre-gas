@@ -11,15 +11,16 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row >
+    <ion-row  class="ion-align-self-start">
       <ion-col size="6" offset="3"  size-md="4" offset-md="4" >
           <ion-img [src]= "logo"></ion-img>
       </ion-col>
+
     </ion-row>
 
     <ion-row>
       <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" >
-        <ion-button  color="warning"  expand="block">
+        <ion-button [routerLink]="['/produto/confirmar']" color="primary"  expand="block">
           <ion-icon  slot="start" name="locate"></ion-icon>
           Minha Localizacao
         </ion-button>
@@ -28,7 +29,7 @@
 
     <ion-row>
       <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3">
-        <ion-button  color="warning"  expand="block">
+        <ion-button [routerLink]="['/produto/confirmar']" color="primary"  expand="block">
           <ion-icon  slot="start" name="home"></ion-icon>
           Minha Residencia
         </ion-button>
@@ -37,7 +38,7 @@
 
     <ion-row>
       <ion-col size-sm="8" offset-sm="2" size-md="6" offset-md="3" >
-        <ion-button  color="warning"  expand="block">
+        <ion-button  color="primary"  expand="block">
           <ion-icon  slot="start" name="locate"></ion-icon>
           Outro
         </ion-button>

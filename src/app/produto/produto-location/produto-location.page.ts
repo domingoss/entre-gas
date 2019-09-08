@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-produto-location',
   templateUrl: './produto-location.page.html',
-  styleUrls: ['./produto-location.page.scss'],
+  styleUrls: ['./produto-location.page.scss',]
 })
 export class ProdutoLocationPage implements OnInit {
 

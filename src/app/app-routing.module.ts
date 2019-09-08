@@ -10,8 +10,13 @@ const routes: Routes = [
      path: '',
      loadChildren: './produto/produto.module#ProdutoPageModule'
    },
-   { path: 'localizacao',
-     loadChildren: './produto/produto-location/produto-location.module#ProdutoLocationPageModule' }
+   {
+     path: 'localizacao',
+     loadChildren: './produto/produto-location/produto-location.module#ProdutoLocationPageModule'
+   },
+   {
+     path: 'confirmar',
+     loadChildren: './produto/produto-confirmar/produto-confirmar.module#ProdutoConfirmarPageModule' }
    ]
    }
 
