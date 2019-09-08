@@ -16,11 +16,16 @@ const routes: Routes = [
    },
    {
      path: 'confirmar',
-     loadChildren: './produto/produto-confirmar/produto-confirmar.module#ProdutoConfirmarPageModule' }
-   ]
+     loadChildren: './produto/produto-confirmar/produto-confirmar.module#ProdutoConfirmarPageModule'
+   },
+   {
+    path: 'localizacao-outra', 
+    loadChildren: './produto/produto-localizacao-outra/produto-localizacao-outra.module#ProdutoLocalizacaoOutraPageModule'
    }
 
-];
+   ]
+   }
+  ];
 
 @NgModule({
   imports: [
