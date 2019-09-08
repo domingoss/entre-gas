@@ -2,8 +2,19 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: '', redirectTo: 'produto', pathMatch: 'full' },
+  {
+   path: 'produto',
+   children:[
+     {
+     path: '',
+     loadChildren: './produto/produto.module#ProdutoPageModule'
+   },
+   { path: 'localizacao',
+     loadChildren: './produto/produto-location/produto-location.module#ProdutoLocationPageModule' }
+   ]
+   }
+
 ];
 
 @NgModule({

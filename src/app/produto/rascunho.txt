@@ -1,0 +1,62 @@
+<ion-app>
+
+  <ion-toolbar color="secondary">
+
+    <ion-title >Entre-Gas</ion-title>
+
+
+
+  </ion-toolbar>
+
+
+
+
+
+
+
+<ion-content>
+
+  <ion-grid  >
+
+    <ion-row>
+      <ion-col  size-sm="8" offset-sm="2" size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-img style="width:50%; margin:auto;" [src]="produto.logo"></ion-img>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-item >
+              <ion-icon color="secondary" name="fitness" slot="start"></ion-icon>
+              <ion-label class="ion-text-center">{{produto.peso}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon color="secondary" name="logo-usd" slot="start"></ion-icon>
+              <ion-label class="ion-text-center">{{produto.preco}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-icon color="secondary" name="time" slot="start"></ion-icon>
+              <ion-label class="ion-text-center">{{produto.tempo}}</ion-label>
+            </ion-item>
+
+          </ion-card-content>
+
+
+            <ion-button color="warning"  expand="block">
+              <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+              Encomendar
+            </ion-button>
+
+
+      </ion-card>
+
+
+    </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
+</ion-app>
