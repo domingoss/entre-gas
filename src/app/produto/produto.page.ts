@@ -7,6 +7,8 @@ import {Produto} from './produto.model';
   styleUrls: ['./produto.page.scss'],
 })
 export class ProdutoPage implements OnInit {
+
+//aqui e' uma interfaceproduto
 private produto: Produto ={
 
    peso: '15kg',
@@ -14,7 +16,7 @@ private produto: Produto ={
    preco: '800.00 Mt',
    logo: './assets/gas-bottle-warning.png'
  };
-
+//aqui e o construtor principal
   constructor() { }
 
   ngOnInit() {

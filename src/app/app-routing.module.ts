@@ -19,12 +19,14 @@ const routes: Routes = [
      loadChildren: './produto/produto-confirmar/produto-confirmar.module#ProdutoConfirmarPageModule'
    },
    {
-    path: 'localizacao-outra', 
+    path: 'localizacao-outra',
     loadChildren: './produto/produto-localizacao-outra/produto-localizacao-outra.module#ProdutoLocalizacaoOutraPageModule'
    }
 
    ]
-   }
+   },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
+  { path: 'registar', loadChildren: './auth/registar/registar.module#RegistarPageModule' }
   ];
 
 @NgModule({

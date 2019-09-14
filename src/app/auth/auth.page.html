@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color= "secondary">
+    <ion-title>Faca Login!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form  #form="ngForm" (ngSubmit)="register(form)">
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+            <div class="ion-text-center">
+
+            </div>
+            <div class="ion-padding">
+              <ion-item>
+                <ion-input name="email" type="email" placeholder="Gas@email.com" ngModel required></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-input  name="senha" type="password" placeholder="Senha" ngModel required></ion-input>
+              </ion-item>
+            </div>
+            <div class="ion-padding">
+              <ion-button  type="submit" [disabled]="form.invalid" expand="block">Entrar</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+</ion-content>
