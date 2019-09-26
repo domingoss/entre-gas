@@ -2,8 +2,10 @@
 <ion-app>
 
   <ion-toolbar color="secondary">
-
     <ion-title >Entre-Gas</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-buttons slot="end">
      <ion-button [routerLink]="['/produto/localizacao']" >
           <ion-icon name="arrow-forward"></ion-icon>
@@ -35,7 +37,7 @@
       <ion-col size-sm="6" offset-sm="3" size-md="6" offset-md="3">
         <ion-card>
             <ion-item>
-              <ion-icon color="secondary"  slot="start"><span class="mdi mdi-scale-balance"></span></ion-icon>
+              <ion-icon color="secondary"  slot="start"></ion-icon>
               <ion-label class="ion-text-center">{{produto.peso}}</ion-label>
             </ion-item>
 

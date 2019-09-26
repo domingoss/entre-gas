@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
   <form  #form="ngForm" (ngSubmit)="register(form)">
       <ion-grid>
         <ion-row class="ion-justify-content-center">
@@ -14,10 +15,12 @@
             </div>
             <div class="ion-padding">
               <ion-item>
+                <ion-icon slot="start" name="person"></ion-icon>
                 <ion-input name="email" type="email" placeholder="Gas@email.com" ngModel required></ion-input>
               </ion-item>
 
               <ion-item>
+                <ion-icon slot="start" name="key"></ion-icon>
                 <ion-input  name="senha" type="password" placeholder="Senha" ngModel required></ion-input>
               </ion-item>
             </div>
@@ -28,4 +31,5 @@
         </ion-row>
       </ion-grid>
     </form>
+  </ion-card>
 </ion-content>

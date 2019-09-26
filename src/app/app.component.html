@@ -1,3 +1,38 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" >
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Entre Gas</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content >
+      <ion-list >
+
+          <ion-item lines="none" routerLink="/produto" detail>
+              <ion-icon name="home" slot="start" color="secondary"></ion-icon>
+              <ion-label>Gas</ion-label>
+          </ion-item>
+
+        <ion-item lines="none" detail>
+            <ion-icon name="person" slot="start" color="secondary"></ion-icon>
+            <ion-label>Minha Conta</ion-label>
+        </ion-item>
+
+        <ion-item lines="none" detail>
+            <ion-icon name="trending-up" slot="start" color="secondary"></ion-icon>
+            <ion-label>Historico</ion-label>
+        </ion-item>
+
+        <ion-item lines="none" detail>
+            <ion-icon name="exit" slot="start" color="secondary"></ion-icon>
+            <ion-label>Sair</ion-label>
+        </ion-item>
+
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet main></ion-router-outlet>
 </ion-app>
