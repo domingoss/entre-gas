@@ -19,6 +19,8 @@ const routes: Routes = [
     path:'localizacao-outra',
     loadChildren: './produto-localizacao-outra/produto-localizacao-outra.module#ProdutoLocalizacaoOutraPageModule'
   }
+
+
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

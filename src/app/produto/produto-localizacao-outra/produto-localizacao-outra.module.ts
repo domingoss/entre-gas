@@ -10,8 +10,20 @@ import { ProdutoLocalizacaoOutraPage } from './produto-localizacao-outra.page';
 const routes: Routes = [
   {
     path: '',
-    component: ProdutoLocalizacaoOutraPage
+    component: ProdutoLocalizacaoOutraPage,
+    children: [
+      {
+        path: 'mapa',
+        loadChildren: './produto-localizacao-outra/mapa/mapa.module#MapaPageModule'
+      },
+      {
+        path: 'endereco',
+        loadChildren: './produto-localizacao-outra/endereco/endereco.module#EnderecoPageModule'
+      }
+    ]
   }
+
+
 ];
 
 @NgModule({
