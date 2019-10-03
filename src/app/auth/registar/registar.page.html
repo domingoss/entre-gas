@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content>
+
   <form  #form="ngForm" (ngSubmit)="register(form)">
       <ion-grid>
         <ion-row  class="ion-justify-content-center">
@@ -15,23 +16,30 @@
             <div class="ion-padding">
               <ion-item>
                 <ion-input  name="nome" type="text" placeholder="Nome" ngModel required></ion-input>
+                <ion-icon slot="start" name="person"></ion-icon>
               </ion-item>
+
               <ion-item>
                 <ion-input name="email" type="email" placeholder="Gas@email.com" ngModel required></ion-input>
+                <ion-icon slot="start" name="mail"></ion-icon>
               </ion-item>
+
               <ion-item>
                 <ion-input name="senha" type="password" placeholder="Senha" ngModel required></ion-input>
+                  <ion-icon slot="start" name="key"></ion-icon>
               </ion-item>
+
               <ion-item>
                 <ion-input name="confirmar" type="password" placeholder="Comfirmar Senha" ngModel required></ion-input>
+                <ion-icon slot="start" name="key"></ion-icon>
               </ion-item>
               <ion-item>
                 <ion-input name="endereco" type="text" placeholder="Sua Residencia" ngModel required></ion-input>
-                  <ion-icon slot="end" name="home"></ion-icon>
+                  <ion-icon slot="start" name="home"></ion-icon>
               </ion-item>
               <ion-item>
-                <ion-input name="endereco" type="text" placeholder="Sua Localizacao (Oopcional)"></ion-input>
-                  <ion-icon slot="end" name="pin"></ion-icon>
+                <ion-input name="contacto" type="number" placeholder="Contacto" ngModel required></ion-input>
+                  <ion-icon slot="start" name="call"></ion-icon>
               </ion-item>
             </div>
             <div class="ion-padding">
@@ -41,4 +49,5 @@
         </ion-row>
       </ion-grid>
     </form>
+
 </ion-content>

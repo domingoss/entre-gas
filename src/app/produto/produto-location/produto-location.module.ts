@@ -12,7 +12,16 @@ const routes: Routes = [
   {
     path: '',
     component: ProdutoLocationPage
+  },
+  {
+    path: 'confirmar',
+    loadChildren: './produto-confirmar/produto-confirmar.module#ProdutoConfirmarPageModule'
+  },
+  {
+    path:'localizacao-outra',
+    loadChildren: './produto-localizacao-outra/produto-localizacao-outra.module#ProdutoLocalizacaoOutraPageModule'
   }
+
 ];
 
 @NgModule({

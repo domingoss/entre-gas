@@ -14,11 +14,11 @@ const routes: Routes = [
     children: [
       {
         path: 'mapa',
-        loadChildren: './produto-localizacao-outra/mapa/mapa.module#MapaPageModule'
+        loadChildren: './mapa/mapa.module#MapaPageModule'
       },
       {
         path: 'endereco',
-        loadChildren: './produto-localizacao-outra/endereco/endereco.module#EnderecoPageModule'
+        loadChildren: './endereco/endereco.module#EnderecoPageModule'
       }
     ]
   }

@@ -11,6 +11,9 @@ const routes: Routes = [
   {
     path: '',
     component: AuthPage
+  },{
+    path: 'registar',
+    loadChildren: './registar/registar.module#RegistarPageModule'
   }
 ];
 

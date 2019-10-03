@@ -6,13 +6,6 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-buttons slot="end">
-     <ion-button [routerLink]="['/produto/localizacao']" >
-          <ion-icon name="arrow-forward"></ion-icon>
-      </ion-button>
-   </ion-buttons>
-
-
   </ion-toolbar>
 
 
@@ -28,44 +21,52 @@
 
     <ion-row class="ion-align-items-center">
 
-      <ion-col  size-sm="6" offset-sm="3" size-md="6"offset-md="3" class="ion-margin-vertical">
-                <ion-img style="width: 200px; margin:auto;" [src]="produto.logo"></ion-img>
-      </ion-col>
-
-
-
       <ion-col size-sm="6" offset-sm="3" size-md="6" offset-md="3">
-        <ion-card>
-            <ion-item>
+        <ion-card *ngFor="let produto of produtos">
+          <ion-card-header color="secondary">
+            <ion-card-title>{{produto.nome}}</ion-card-title>
+          </ion-card-header>
+
+            <div class="ion-margin">
+              <ion-img style="width: 150px; margin:auto;" [src] = "produto.logo"></ion-img>
+            </div>
+
+
+          <ion-card-content >
+
+            <ion-item >
+              <ion-icon color="secondary"  slot="start"></ion-icon>
+              <ion-label class="ion-text-center">{{produto.nome |uppercase}}</ion-label>
+            </ion-item>
+
+            <ion-item >
               <ion-icon color="secondary"  slot="start"></ion-icon>
               <ion-label class="ion-text-center">{{produto.peso}}</ion-label>
             </ion-item>
 
-            <ion-item>
+            <ion-item >
               <ion-icon color="secondary" name="logo-usd" slot="start"></ion-icon>
               <ion-label class="ion-text-center">{{produto.preco}}</ion-label>
             </ion-item>
 
-            <ion-item>
+            <ion-item >
               <ion-icon color="secondary" name="time" slot="start"></ion-icon>
               <ion-label class="ion-text-center">{{produto.tempo}}</ion-label>
             </ion-item>
+
+            <ion-item [routerLink]="[produto.id]" color="primary">
+              <ion-label class="ion-text-center">Encomendar</ion-label>
+              <ion-icon  slot="start" name="add-circle-outline"></ion-icon>
+
+
+          </ion-item>
+
+          </ion-card-content>
           </ion-card>
     </ion-col>
 
-
-
-      <ion-col size-sm="6" offset-sm="3" size-md="6" offset-md="3" >
-      <ion-button [routerLink]="['/produto/localizacao']" color="primary"  expand="block">
-        <ion-icon  slot="start" name="add-circle-outline"></ion-icon>
-        Encomendar
-      </ion-button>
-      </ion-col>
     </ion-row>
-
   </ion-grid>
-
-
 
 </ion-content>
 </ion-app>

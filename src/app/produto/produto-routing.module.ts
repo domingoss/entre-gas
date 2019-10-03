@@ -8,17 +8,10 @@ const routes: Routes = [
     component: ProdutoPage,
   },
   {
-    path: 'localizacao',
+    path: ':produtoId',
     loadChildren: './produto-location/produto-location.module#ProdutoLocationPageModule'
-  },
-  {
-    path: 'confirmar',
-    loadChildren: './produto-confirmar/produto-confirmar.module#ProdutoConfirmarPageModule'
-  },
-  {
-    path:'localizacao-outra',
-    loadChildren: './produto-localizacao-outra/produto-localizacao-outra.module#ProdutoLocalizacaoOutraPageModule'
   }
+
 
 
 ];

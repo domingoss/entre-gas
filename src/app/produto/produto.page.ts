@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Produto} from './produto.model';
+import { ProdutoService } from './produto.service';
+import { Produto } from './produto.model';
+
+
+
 
 @Component({
   selector: 'app-produto',
@@ -7,19 +11,13 @@ import {Produto} from './produto.model';
   styleUrls: ['./produto.page.scss'],
 })
 export class ProdutoPage implements OnInit {
-
-//aqui e' uma interfaceproduto
-private produto: Produto ={
-
-   peso: '15kg',
-   tempo:'20 Min',
-   preco: '800.00 Mt',
-   logo: './assets/gas-bottle-warning.png'
- };
+  produtos: Produto[];
 //aqui e o construtor principal
-  constructor() { }
+  constructor(private produtoService: ProdutoService) { }
 
   ngOnInit() {
+    this.produtos= this.produtoService.produtos;
+    console.log(this.produtos);
   }
 
 
