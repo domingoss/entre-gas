@@ -24,7 +24,9 @@
       <ion-col size-sm="6" offset-sm="3" size-md="6" offset-md="3">
         <ion-card *ngFor="let produto of produtos">
           <ion-card-header color="secondary">
-            <ion-card-title>{{produto.nome}}</ion-card-title>
+            <ion-card-title>
+              <ion-label style="color: white; ">{{produto.nome}}</ion-label>
+            </ion-card-title>
           </ion-card-header>
 
             <div class="ion-margin">

@@ -8,26 +8,32 @@
 
     <ion-content >
       <ion-list >
-
+        <ion-menu-toggle>
           <ion-item lines="none" routerLink="/produto" detail>
               <ion-icon name="home" slot="start" color="secondary"></ion-icon>
               <ion-label>Gas</ion-label>
           </ion-item>
+        </ion-menu-toggle>
 
         <ion-item lines="none" detail>
             <ion-icon name="person" slot="start" color="secondary"></ion-icon>
             <ion-label>Minha Conta</ion-label>
         </ion-item>
 
-        <ion-item lines="none" detail>
+
+      <ion-menu-toggle>
+        <ion-item lines="none" routerLink="/historico/entregue"detail>
             <ion-icon name="trending-up" slot="start" color="secondary"></ion-icon>
             <ion-label>Historico</ion-label>
         </ion-item>
+      </ion-menu-toggle>
 
+      <ion-menu-toggle>
         <ion-item lines="none" detail>
             <ion-icon name="exit" slot="start" color="secondary"></ion-icon>
             <ion-label>Sair</ion-label>
         </ion-item>
+      </ion-menu-toggle>
 
 
       </ion-list>
