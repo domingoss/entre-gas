@@ -18,6 +18,7 @@ export class ProdutoPage implements OnInit {
   ngOnInit() {
     this.produtos= this.produtoService.produtos;
     console.log(this.produtos);
+    this.produtoService.getProdutos();
   }
 
 
