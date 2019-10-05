@@ -18,7 +18,7 @@ USE `entre-gasv1`;
 
 -- Dumping structure for table entre-gasv1.c_cliente
 CREATE TABLE IF NOT EXISTS `c_cliente` (
-  `c_row_id` int(11) NOT NULL,
+  `c_row_id` int(11) NOT NULL AUTO_INCREMENT,
   `c_id` int(11) NOT NULL,
   `u_id` int(11) NOT NULL,
   `c_nome` varchar(50) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `c_cliente` (
 
 -- Dumping structure for table entre-gasv1.c_configuracao
 CREATE TABLE IF NOT EXISTS `c_configuracao` (
-  `c_row_id` int(11) NOT NULL,
+  `c_row_id` int(11) NOT NULL AUTO_INCREMENT,
   `c_id` int(11) NOT NULL,
   `c_nome` varchar(50) NOT NULL,
   `c_descricao` varchar(50) DEFAULT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `c_configuracao` (
 
 -- Dumping structure for table entre-gasv1.e_encomenda
 CREATE TABLE IF NOT EXISTS `e_encomenda` (
-  `e_row_id` int(11) NOT NULL,
+  `e_row_id` int(11) NOT NULL AUTO_INCREMENT,
   `e_id` int(11) NOT NULL,
   `e_estado` varchar(50) NOT NULL DEFAULT '',
   `p_id` int(11) NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `e_encomenda` (
 
 -- Dumping structure for table entre-gasv1.gu_grupo_utilizador
 CREATE TABLE IF NOT EXISTS `gu_grupo_utilizador` (
-  `gu_row_id` int(11) NOT NULL,
+  `gu_row_id` int(11) NOT NULL AUTO_INCREMENT,
   `gu_id` int(11) NOT NULL,
   `gu_nome` varchar(50) NOT NULL,
   `gu_criado_por` int(11) NOT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `gu_grupo_utilizador` (
 
 -- Dumping structure for table entre-gasv1.l_localizacao
 CREATE TABLE IF NOT EXISTS `l_localizacao` (
-  `l_row_id` int(11) NOT NULL,
+  `l_row_id` int(11) NOT NULL AUTO_INCREMENT,
   `l_id` int(11) NOT NULL,
   `l_nome` varchar(50) DEFAULT NULL,
   `l_latitude` varchar(50) DEFAULT NULL,
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `l_localizacao` (
 
 -- Dumping structure for table entre-gasv1.p_produto
 CREATE TABLE IF NOT EXISTS `p_produto` (
-  `p_row_id` int(11) NOT NULL,
+  `p_row_id` int(11) NOT NULL AUTO_INCREMENT,
   `p_id` int(11) NOT NULL,
   `p_nome` varchar(50) DEFAULT NULL,
   `p_preco` double DEFAULT NULL,
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `p_produto` (
 
 -- Dumping structure for table entre-gasv1.u_utilizador
 CREATE TABLE IF NOT EXISTS `u_utilizador` (
-  `u_row_id` int(11) NOT NULL,
+  `u_row_id` int(11) NOT NULL AUTO_INCREMENT,
   `u_id` int(11) NOT NULL,
   `gu_id` int(11) NOT NULL,
   `u_nome` varchar(50) NOT NULL,

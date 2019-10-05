@@ -6,22 +6,35 @@
  * Time: 14:03
  */
 header('Access-Control-Allow-Origin: *');
-header('Content-type: application/json');
+header("Access-Control-Allow-Credentials: true");
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+header('Access-Control-Max-Age: 1000');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
 
 include_once("../../dao/pesquisa.php");
 include_once("../../dao/adicionar.php");
 
 date_default_timezone_set("Africa/Maputo");
 
-$data_actual = date("Y-m-d H:i:s");
+//$data_actual = date("Y-m-d H:i:s");
 
-$utilizador = $_REQUEST["utilizador"];
-$mensagem = $_REQUEST["mensagem"];
+$postdata = file_get_contents("php://input");
+$request = json_decode($postdata);
+$utilizador = $request->utilizador;
+$mensagem = $request->mensagem;
+
+
+
+
+
+$produtos = select("p_produto","*","WHERE p_end_date > NOW()");
+
 
 $array = array(
 'dados'=> 'teste de conexao',
 'projecto'=>'entre gas',
-'utilizador'=>$utilizador
+'utilizador'=>$utilizador,
+'produtos'=>$produtos
 
 );
 

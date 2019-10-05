@@ -40,10 +40,14 @@ export class ProdutoService {
 
   getProdutos(){
 
-      this.http.post('http://localhost:8080/entre-gas/php/controller/pesquisar/teste.php/', {
+      var postData = {
           utilizador: 'Domingos',
           mensagem: 'Olá caro Servidor'
-      }).subscribe((response) => {
+      };
+
+      console.log(postData);
+
+      this.http.post('http://localhost:8080/entre-gas/php/controller/pesquisar/teste.php/', postData).subscribe((response) => {
           console.log(response);
       });
 
