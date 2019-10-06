@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `c_cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table entre-gasv1.c_cliente: ~0 rows (approximately)
+DELETE FROM `c_cliente`;
 /*!40000 ALTER TABLE `c_cliente` DISABLE KEYS */;
 /*!40000 ALTER TABLE `c_cliente` ENABLE KEYS */;
 
@@ -72,6 +73,7 @@ CREATE TABLE IF NOT EXISTS `c_configuracao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table entre-gasv1.c_configuracao: ~0 rows (approximately)
+DELETE FROM `c_configuracao`;
 /*!40000 ALTER TABLE `c_configuracao` DISABLE KEYS */;
 /*!40000 ALTER TABLE `c_configuracao` ENABLE KEYS */;
 
@@ -104,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `e_encomenda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table entre-gasv1.e_encomenda: ~0 rows (approximately)
+DELETE FROM `e_encomenda`;
 /*!40000 ALTER TABLE `e_encomenda` DISABLE KEYS */;
 /*!40000 ALTER TABLE `e_encomenda` ENABLE KEYS */;
 
@@ -127,6 +130,7 @@ CREATE TABLE IF NOT EXISTS `gu_grupo_utilizador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table entre-gasv1.gu_grupo_utilizador: ~0 rows (approximately)
+DELETE FROM `gu_grupo_utilizador`;
 /*!40000 ALTER TABLE `gu_grupo_utilizador` DISABLE KEYS */;
 /*!40000 ALTER TABLE `gu_grupo_utilizador` ENABLE KEYS */;
 
@@ -153,6 +157,7 @@ CREATE TABLE IF NOT EXISTS `l_localizacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table entre-gasv1.l_localizacao: ~0 rows (approximately)
+DELETE FROM `l_localizacao`;
 /*!40000 ALTER TABLE `l_localizacao` DISABLE KEYS */;
 /*!40000 ALTER TABLE `l_localizacao` ENABLE KEYS */;
 
@@ -178,10 +183,13 @@ CREATE TABLE IF NOT EXISTS `p_produto` (
   KEY `FK_p_produto_u_utilizador_2` (`p_modificao_por`),
   CONSTRAINT `FK_p_produto_u_utilizador` FOREIGN KEY (`p_criado_por`) REFERENCES `u_utilizador` (`u_id`),
   CONSTRAINT `FK_p_produto_u_utilizador_2` FOREIGN KEY (`p_modificao_por`) REFERENCES `u_utilizador` (`u_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table entre-gasv1.p_produto: ~0 rows (approximately)
+-- Dumping data for table entre-gasv1.p_produto: ~1 rows (approximately)
+DELETE FROM `p_produto`;
 /*!40000 ALTER TABLE `p_produto` DISABLE KEYS */;
+INSERT INTO `p_produto` (`p_row_id`, `p_id`, `p_nome`, `p_preco`, `p_estado`, `p_tipo`, `p_marca`, `p_peso`, `p_criado_por`, `p_modificao_por`, `p_data_criacao`, `p_data_modificacao`, `p_start_date`, `p_end_date`) VALUES
+	(2, 1, 'Botijao', 1500, 'activo', NULL, NULL, 15, 1, 1, '2019-10-05 19:44:34', '2019-10-05 19:44:35', '2019-10-05 00:00:00', '2050-10-10 00:00:00');
 /*!40000 ALTER TABLE `p_produto` ENABLE KEYS */;
 
 -- Dumping structure for table entre-gasv1.u_utilizador
@@ -200,12 +208,14 @@ CREATE TABLE IF NOT EXISTS `u_utilizador` (
   `u_end_date` datetime NOT NULL,
   PRIMARY KEY (`u_row_id`),
   KEY `Index 2` (`u_id`),
-  KEY `FK_u_utilizador_gu_grupo_utilizador` (`gu_id`),
-  CONSTRAINT `FK_u_utilizador_gu_grupo_utilizador` FOREIGN KEY (`gu_id`) REFERENCES `gu_grupo_utilizador` (`gu_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `FK_u_utilizador_gu_grupo_utilizador` (`gu_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table entre-gasv1.u_utilizador: ~0 rows (approximately)
+-- Dumping data for table entre-gasv1.u_utilizador: ~1 rows (approximately)
+DELETE FROM `u_utilizador`;
 /*!40000 ALTER TABLE `u_utilizador` DISABLE KEYS */;
+INSERT INTO `u_utilizador` (`u_row_id`, `u_id`, `gu_id`, `u_nome`, `u_senha`, `u_ultimo_login`, `u_criado_por`, `u_modificado_por`, `u_data_criacao`, `u_data_modificacao`, `u_start_date`, `u_end_date`) VALUES
+	(1, 1, 1, 'jonas', '123', '2019-10-05 19:43:21', 1, 1, '2019-10-05 19:43:27', '2019-10-05 19:43:28', '2019-10-05 19:43:30', '2045-10-05 19:43:34');
 /*!40000 ALTER TABLE `u_utilizador` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
