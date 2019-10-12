@@ -16,9 +16,19 @@ export class ProdutoPage implements OnInit {
   constructor(private produtoService: ProdutoService) { }
 
   ngOnInit() {
-    this.produtos= this.produtoService.produtos;
-    console.log(this.produtos);
+
+
     this.produtoService.getProdutos();
+
+    // this.prsService.personsChanged.subscribe(persons => {
+    //   this.personList = persons;
+    //   this.isFetching = false;
+    // });
+
+      this.produtoService._ProdutosCarregados.subscribe(produtos =>{
+      this.produtos= produtos;
+      // console.log(this.produtos);
+    });
   }
 
 

@@ -34,7 +34,7 @@
 
         if($conexao = connect()){
 
-            if(mysql_query($atualizar,$conexao)){
+            if(mysqli_query($conexao,$atualizar)){
 
                 fechaConexao($conexao);
                 return true;
@@ -53,4 +53,3 @@
 
         }
     }
-

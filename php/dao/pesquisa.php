@@ -5,17 +5,19 @@
 
     function select($tabela,$coluna="*",$where=NULL,$ordem=NULL,$limite=NULL){
 
+
+
         $sql = "SELECT {$coluna} FROM {$tabela} {$where} {$ordem} {$limite}";
 
         if($conexao = connect()){
 
-            if($query = mysql_query($sql,$conexao)){
+            if($query = mysqli_query($conexao,$sql)){
 
-                if(mysql_num_rows($query)>0){
+                if(mysqli_num_rows($query)>0){
 
                     $resultados_totais = array();
 
-                    while($resultado = mysql_fetch_assoc($query)){
+                    while($resultado = mysqli_fetch_assoc($query)){
 
                         $resultados_totais[] = $resultado;
 
@@ -45,4 +47,3 @@
         }
 
     }
-

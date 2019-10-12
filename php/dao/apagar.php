@@ -10,7 +10,7 @@
 
         if($conexao = connect()){
 
-            if(mysql_query($apagar,$conexao)){
+            if(mysqli_query($conexao,$apagar)){
 
                 fechaConexao($conexao);
                 return true;
@@ -28,4 +28,3 @@
 
         }
     }
-

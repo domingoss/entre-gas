@@ -1,42 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Produto } from './produto.model';
 import { HttpClient } from '@angular/common/http';
-
+import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
-  private _produtos: Produto[] =[
-     new Produto (
-       'p1',
-       'Propano Butano',
-       '15KG',
-       '20 MIN',
-       800,
-       './assets/gas-bottle-warning.png'),
-       new Produto (
-         'p2',
-         'Hidrogenio',
-         '15KG',
-         '20 MIN',
-         1000,
-         './assets/gas-bottle-warning.png'
-       ),
-            new Produto (
-         'p3',
-         'Hidrogenio',
-         '15KG',
-         '20 MIN',
-         5000,
-         './assets/gas-bottle-warning.png'
-       )
-   ];
+   _ProdutosCarregados  = new Subject <Produto[]>();
+
+
   constructor(private http: HttpClient) { }
 
-  get produtos(){
-    return [...this._produtos];
-  }
+
 
   getProdutos(){
 
@@ -45,10 +22,15 @@ export class ProdutoService {
           mensagem: 'Olá caro Servidor'
       };
 
-      console.log(postData);
+    //  console.log(postData);
 
-      this.http.post('http://localhost:8080/entre-gas/php/controller/pesquisar/teste.php/', postData).subscribe((response) => {
-          console.log(response);
+      this.http
+      .post<any>('http://localhost/php/controller/pesquisar/pesquisar_produto.php/', postData)
+     // .pipe(map(res =>{ return res}))
+      .subscribe((produtosTransformados) => {
+        // console.log(produtosTransformados);
+      this._ProdutosCarregados.next(produtosTransformados);
+
       });
 
   }

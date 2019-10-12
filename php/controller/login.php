@@ -12,32 +12,43 @@ header('Access-Control-Max-Age: 1000');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
 date_default_timezone_set("Africa/Maputo");
 
-include_once ("../dao/pesquisa.php");
+include_once("../dao/pesquisa.php");
 include_once("../dao/actualizar.php");
 
-$username = $_REQUEST["username"];
-$senha = md5($_REQUEST["password"]);
-$tipo_usuario = $_REQUEST["tipo_usuario"];
+$usuarioPost = file_get_contents("php://input");
+$requisicao= json_decode($usuarioPost);
+
+ $username =$requisicao->nome;
+ $senha = $requisicao->senha;
+
+
+// $username = $_REQUEST["username"];
+// $senha = md5($_REQUEST["password"]);
+// $username = $request->nome;
+// $senha = $request->senha;
+// $tipo_usuario = $_REQUEST["tipo_usuario"];
+
 $data = date_create()->format("Y-m-d H:i:s");
 
 
-$utilizador = select("u_utilizador", "*", "WHERE u_email LIKE '$username'");
+$utilizador = select("u_utilizador","u_utilizador.*", "WHERE u_nome = '$username'");
+
 
 $_SESSION['loggedin'] = false;
 
 
 if($utilizador){
 
-$users = select("u_utilizador", "*", "WHERE u_email LIKE '$username' AND u_senha LIKE '$senha'");
+$users = select("u_utilizador", "*", "WHERE u_nome LIKE '$username' AND u_senha LIKE '$senha'");
 
 if ($users != null) {
 
-    if(strcmp($users[0]["u_estado"],"1") == 0) {
+  if(strcmp($users[0]["u_estado"],"1") == 0) {
 
 
 
         $usuario_codigo = $users[0]["u_id"];
-        $usuario_grupo = $users[0]["u_grupo"];
+        $usuario_grupo = $users[0]["gu_id"];
 
         $_SESSION['loggedin'] = true;
         $_SESSION["usuario_codigo"] = $users[0]["u_id"];
@@ -46,12 +57,14 @@ if ($users != null) {
         $_SESSION["usuario_contacto"] = $users[0]["u_contacto"];
         $_SESSION["usuario_endereco"] = $users[0]["u_endereco"];
 
+
         if (strcmp($usuario_grupo, "1") == 0) {
+          // echo json_encode($users);
 
             //Coloque aqui as intrucoes, ele ja foi autorizado
             //Utilizador cliente
 
-            $atualizar = atualizar("u_last_login", "$data",
+            $atualizar = atualizar("u_ultimo_login", "$data",
                 "u_utilizador", "WHERE u_id LIKE '$usuario_codigo'");
 
 
@@ -74,7 +87,7 @@ if ($users != null) {
             //Coloque aqui as intrucoes, ele ja foi autorizado
             //Utilizador Cliente
 
-            $atualizar = atualizar("u_last_login", "$data",
+            $atualizar = atualizar("u_ultimo_login", "$data",
                 "u_utilizador", "WHERE u_id LIKE '$usuario_codigo'");
 
 
@@ -126,21 +139,20 @@ if ($users != null) {
 }else{
 
     $status = array(
-        'estado'=>'invalido'
+        'estado'=>'senha invalida'
     );
-
+     http_response_code(401);
     echo json_encode($status);
 
 }
 
 }else{
-
+    // http_response_code(401);
     $status = array(
-        'estado'=>'invalido'
+        'estado'=>'usuario inesistente'
     );
 
     echo json_encode($status);
 
 
 }
-

@@ -1,13 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ESCOPIL
- * Date: 07-06-2019
- * Time: 00:19
- */
-
-
-
 
 include_once("php/dao/pesquisa.php");
 include_once("php/dao/adicionar.php");
@@ -46,7 +37,7 @@ function listarSubCategoria(){
                                                 <td>'.$s_descricao.'</td>
                                                 <td>'.$c_categoria.'</td>
                                                 <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-id="'.$s_imagem.'" data-target="#imagemModal"> Ver Imagem</button></td>
-                                            
+
                                             </tr>
                 ';
 

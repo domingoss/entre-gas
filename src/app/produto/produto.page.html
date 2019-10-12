@@ -25,12 +25,12 @@
         <ion-card *ngFor="let produto of produtos">
           <ion-card-header color="secondary">
             <ion-card-title>
-              <ion-label style="color: white; ">{{produto.nome}}</ion-label>
+              <ion-label style="color: white; ">{{produto.p_nome}}</ion-label>
             </ion-card-title>
           </ion-card-header>
 
             <div class="ion-margin">
-              <ion-img style="width: 150px; margin:auto;" [src] = "produto.logo"></ion-img>
+              <ion-img style="width: 150px; margin:auto;" src = "assets/gas-bottle-warning.png"></ion-img>
             </div>
 
 
@@ -38,30 +38,33 @@
 
             <ion-item >
               <ion-icon color="secondary"  slot="start"></ion-icon>
-              <ion-label class="ion-text-center">{{produto.nome |uppercase}}</ion-label>
+              <ion-label class="ion-text-center">{{produto.p_nome }}</ion-label>
             </ion-item>
 
             <ion-item >
               <ion-icon color="secondary"  slot="start"></ion-icon>
-              <ion-label class="ion-text-center">{{produto.peso}}</ion-label>
+              <ion-label class="ion-text-center">{{produto.p_peso}}</ion-label>
             </ion-item>
 
             <ion-item >
               <ion-icon color="secondary" name="logo-usd" slot="start"></ion-icon>
-              <ion-label class="ion-text-center">{{produto.preco}}</ion-label>
+              <ion-label class="ion-text-center">{{produto.p_preco}}</ion-label>
             </ion-item>
 
             <ion-item >
               <ion-icon color="secondary" name="time" slot="start"></ion-icon>
-              <ion-label class="ion-text-center">{{produto.tempo}}</ion-label>
+              <ion-label class="ion-text-center">Tempo</ion-label>
             </ion-item>
 
-            <ion-item [routerLink]="[produto.id]" color="primary">
-              <ion-label class="ion-text-center">Encomendar</ion-label>
-              <ion-icon  slot="start" name="add-circle-outline"></ion-icon>
+
+              <ion-button [routerLink]="[produto.p_id]" expand="block"  >
+                <ion-label class="ion-text-center">Encomendar</ion-label>
+                <ion-icon  slot="start" name="add-circle-outline"></ion-icon>
+              </ion-button>
 
 
-          </ion-item>
+
+
 
           </ion-card-content>
           </ion-card>

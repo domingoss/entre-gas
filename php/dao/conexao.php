@@ -13,22 +13,23 @@
 
 			error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
 
-            function connect($user = "root",$pass = "",$banc = "entre-gasv1",$hostname = "localhost"){
+            function connect($user = "root",$pass = "2960",$banc = "entre-gasv1",$hostname = "localhost"){
 
-                @$conexao = mysql_connect($hostname,$user,$pass);
 
-                mysql_set_charset('utf8',$conexao);
+                @$conexao = mysqli_connect($hostname,$user,$pass);
+
+              //  mysql_set_charset('utf8',$conexao);
 
                 if(!$conexao){
 
 
-                   // die(trigger_error("Não foi possivel conectar ao banco de dados"));
+                    //die(trigger_error("Não foi possivel conectar ao banco de dados"));
                     return false;
 
                 }else{
 
 
-                    $db = mysql_select_db($banc, $conexao);
+                    $db = mysqli_select_db($conexao, $banc);
 
                     if(!$db){
 
@@ -46,4 +47,3 @@
                 }
 
             }
-

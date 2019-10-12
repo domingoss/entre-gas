@@ -26,7 +26,7 @@
 
         if($conexao = connect()){
 
-            if(mysql_query($inserir,$conexao)){
+            if(mysqli_query($conexao,$inserir)){
 
                 fechaConexao($conexao);
                 return true;
@@ -44,6 +44,3 @@
 
         }
     }
-
-
-

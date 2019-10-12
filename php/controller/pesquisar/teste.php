@@ -18,24 +18,24 @@ date_default_timezone_set("Africa/Maputo");
 
 //$data_actual = date("Y-m-d H:i:s");
 
-$postdata = file_get_contents("php://input");
+/*$postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 $utilizador = $request->utilizador;
 $mensagem = $request->mensagem;
 
+*/
 
 
 
-
-$produtos = select("p_produto","*","WHERE p_end_date > NOW()");
+//$produtos = select("p_produto","*","WHERE p_end_date > NOW()");
 
 
 $array = array(
 'dados'=> 'teste de conexao',
-'projecto'=>'entre gas',
-'utilizador'=>$utilizador,
-'produtos'=>$produtos
+'projecto'=>'entre gas'
+/*'utilizador'=>$utilizador,
+'produtos'=>$produtos*/
 
 );
-
+print_r($array);
 echo json_encode($array);
