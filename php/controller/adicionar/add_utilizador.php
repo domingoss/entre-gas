@@ -23,6 +23,8 @@ $u_endereco = $_REQUEST["u_endereco"];
 $data_criacao = date("Y/m/d H:i:s");
 $estado = "activo";
 $u_cod_confirmacao = rand(1000,9000);
+
+
 // $u_cod_confirmacao = md5($u_cod_confirmacao);
 
 $get_user = select("u_utilizador","u_id","WHERE u_email LIKE '$u_email'");

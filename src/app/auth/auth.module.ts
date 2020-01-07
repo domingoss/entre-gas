@@ -10,12 +10,19 @@ import { AuthPage } from './auth.page';
 const routes: Routes = [
   {
     path: '',
-    component: AuthPage
+    component: AuthPage,
+    children: [
+      {
+        path: 'registar',
+        loadChildren: './registar/registar.module#RegistarPageModule'
+      },
+      {
+         path: 'login',
+         loadChildren: './login/login.module#LoginPageModule'
+       }
+    ]
   },
-  {
-    path: 'registar',
-    loadChildren: './registar/registar.module#RegistarPageModule'
-  },
+
   {
     path: 'conta',
     loadChildren: './conta/conta.module#ContaPageModule'

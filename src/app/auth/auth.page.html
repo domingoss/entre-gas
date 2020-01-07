@@ -1,63 +1,19 @@
 <ion-header>
-  <ion-toolbar color= "secondary">
-    <ion-title>Faca Login!</ion-title>
-  </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
-<form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
-  <ion-grid>
+  <ion-tabs>
+    <ion-tab-bar slot="top">
 
-        <ion-row >
-        <ion-col size-sm="6" offset-sm="3" >
-            <ion-list>
-              <ion-item>
-                <ion-icon slot="start" name="person"></ion-icon>
-                <ion-input
-                  name="nome"
-                  type="email"
-                  ngModel
-                  placeholder="Gas@email.com"
-                  required
-                  minLength ="1"
-                  #nomeCtrl = "ngModel"></ion-input>
-              </ion-item>
-              <ion-item *ngIf="!nomeCtrl.valid && nomeCtrl.touched" lines="none">
-                <ion-label>
-                  Verifique o campo
-                </ion-label>
-              </ion-item>
+      <ion-tab-button tab="login">
+        <ion-icon name="contact"></ion-icon>
+      </ion-tab-button>
 
-              <ion-item>
-                <ion-icon slot="start" name="key"></ion-icon>
-                <ion-input
-                  name="senha"
-                  type="password"
-                  ngModel
-                  placeholder="Senha"
-                  minLength ="3"
-                  required
-                  #senhaCtrl = "ngModel"
-                  ></ion-input>
-              </ion-item>
-              <ion-item *ngIf="!senhaCtrl.valid && senhaCtrl.touched" lines ="none">
-                <ion-label>
-                  Verifique o campo
-                </ion-label>
-              </ion-item>
-            </ion-list>
-            </ion-col>
-          </ion-row>
+      <ion-tab-button tab="registar">
+          <ion-icon name="person-add"></ion-icon>
+      </ion-tab-button>
 
-            <ion-row>
-            <ion-col size-sm="6" offset-sm="3" >
-              <ion-button  type="submit" [disabled]="formulario.invalid" expand="block">Entrar</ion-button>
-              <ion-button expand="block" fill="clear">Esqueceu a senha?</ion-button>
-            </ion-col>
-          </ion-row>
-
-
-
-    </ion-grid>
-</form>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>
