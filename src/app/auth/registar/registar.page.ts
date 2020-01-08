@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/form'
+import {NgForm} from '@angular/forms';
+import {AuthService} from '../auth.service';
 @Component({
   selector: 'app-registar',
   templateUrl: './registar.page.html',
@@ -7,16 +8,24 @@ import {NgForm} from '@angular/form'
 })
 export class RegistarPage implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   onRegister(form: NgForm){
-    
-    const nome = formulario.value.nome;
-    const email = formulario.value.email;
-    const senha = formulario.value.senha;
-    const confirma = formulario.value.confirmar;
-    const endereco = formualrio.value.endereco;
-    const contacto = formulario.value.contacto;
+
+    const nome = form.value.nome;
+    const email = form.value.email;
+    const senha = form.value.senha;
+    const confirmar = form.value.confirmar;
+    const endereco = form.value.endereco;
+    const contacto = form.value.contacto;
+
+    this.authService.register(
+      nome,
+      email,
+      senha,
+      confirmar,
+      endereco,
+      contacto);
   }
   ngOnInit() {
   }

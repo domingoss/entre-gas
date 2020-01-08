@@ -13,18 +13,26 @@ include_once ("../../dao/adicionar.php");
 include_once ("../../dao/pesquisa.php");
 
 
-$u_nome = $_REQUEST["u_nome"];
-$u_email = $_REQUEST["u_email"];
-$u_senha = $_REQUEST["u_senha"];
-$u_grupo = $_REQUEST["u_grupo"];
-$u_senha = md5($u_senha);
-$u_contacto = $_REQUEST["u_contacto"];
-$u_endereco = $_REQUEST["u_endereco"];
-$data_criacao = date("Y/m/d H:i:s");
-$estado = "activo";
-$u_cod_confirmacao = rand(1000,9000);
+// $u_nome = $_REQUEST["u_nome"];
+// $u_email = $_REQUEST["u_email"];
+// $u_senha = $_REQUEST["u_senha"];
+// $u_grupo = $_REQUEST["u_grupo"];
+// $u_senha = md5($u_senha);
+// $u_contacto = $_REQUEST["u_contacto"];
+// $u_endereco = $_REQUEST["u_endereco"];
+// $data_criacao = date("Y/m/d H:i:s");
+// $estado = "activo";
+// $u_cod_confirmacao = rand(1000,9000);
 
+$usuarioGet = file_get_contents("php://input");
+$requisicao = json_decode($usuarioGet);
 
+$u_nome= $requisicao -> nome;
+$u_email= $requisicao -> email;
+$u_senha = $requisicao -> senha;
+$u_confirmar = $requisicao -> confirmar;
+$u_endereco = $requisicao -> endereco;
+$u_contacto = $requisicao -> contacto;
 // $u_cod_confirmacao = md5($u_cod_confirmacao);
 
 $get_user = select("u_utilizador","u_id","WHERE u_email LIKE '$u_email'");

@@ -15,8 +15,8 @@ date_default_timezone_set("Africa/Maputo");
 include_once("../dao/pesquisa.php");
 include_once("../dao/actualizar.php");
 
-$usuarioPost = file_get_contents("php://input");
-$requisicao= json_decode($usuarioPost);
+$usuarioGet = file_get_contents("php://input");
+$requisicao= json_decode($usuarioGet);
 
  $username =$requisicao->nome;
  $senha = $requisicao->senha;

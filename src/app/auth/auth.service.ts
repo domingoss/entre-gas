@@ -51,7 +51,7 @@ export class AuthService {
           contacto: contacto
 
       }
-      
+       
       this.http
       .post("http://php/controller/adicionar/add_utilizador.php",postData);
   }
